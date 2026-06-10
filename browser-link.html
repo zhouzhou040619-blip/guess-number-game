@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猜数字游戏 - 浏览器链接</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .link-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            max-width: 400px;
+            width: 100%;
+        }
+        .icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .link {
+            display: block;
+            margin: 20px 0;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        .link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+        .url-box {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: #666;
+            word-break: break-all;
+        }
+        .copy-btn {
+            margin-top: 15px;
+            padding: 10px 25px;
+            background: #f0f0f0;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            color: #666;
+            transition: all 0.2s ease;
+        }
+        .copy-btn:hover {
+            background: #e0e0e0;
+        }
+        .success {
+            color: #4CAF50;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            display: none;
+        }
+        .success.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="link-card">
+        <div class="icon">🎮</div>
+        <h1>猜数字游戏</h1>
+        <p style="color: #666; margin-bottom: 10px;">点击下方链接开始游戏</p>
+        
+        <a href="index.html" class="link">🔢 开始猜数字游戏</a>
+        
+        <div class="url-box" id="urlBox">
+            浏览器链接:<br>
+            <span style="color: #667eea;">file:///c:/Users/zhou/Desktop/A/index.html</span>
+        </div>
+        
+        <button class="copy-btn" onclick="copyLink()">📋 复制链接</button>
+        <div class="success" id="success">✓ 链接已复制！</div>
+    </div>
+
+    <script>
+        function copyLink() {
+            const link = 'file:///c:/Users/zhou/Desktop/A/index.html';
+            navigator.clipboard.writeText(link).then(() => {
+                document.getElementById('success').classList.add('show');
+                setTimeout(() => {
+                    document.getElementById('success').classList.remove('show');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
